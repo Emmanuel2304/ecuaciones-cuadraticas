@@ -1,0 +1,26 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+#content-div{
+  background: rgba(0,0,255,0.2);
+  margin: auto;
+  margin-top: 20px;
+  width: 20%;
+  height: 100px;
+  text-align: center;
+}
+input[type=number]{
+  width: 25px;
+  margin:0px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  background: gray;
+  -moz-appearance:textfield;
+}
+sup{
+  margin: 0px;
+}
