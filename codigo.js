@@ -3,11 +3,13 @@ function formula(){
   var B = document.getElementById('B').value;
   var C = document.getElementById('C').value;
 
-  if(A=="" || B=="" || C==""){
-    alert("Favor de llenar todos los campos");
+  if(B=="" || C==""){
+    //alert("Favor de llenar todos los campos");
+    document.getElementById("texto").innerHTML="Favor de llenar todos los campos";
   }
   else if (A==0) {
-    alert("La ecuacion ya no seria cuadratica, favor de ingresar un numero diferente de 0 en A");
+    //alert("La ecuacion ya no seria cuadratica, favor de ingresar un numero diferente de 0 en A");
+    document.getElementById("texto").innerHTML="La ecuación ya no seria cuadrática, favor de ingresar un numero diferente de 0 en A";
   }
   else if (A!=0) {
     var poten=Math.pow(B,2);
@@ -27,11 +29,28 @@ function formula(){
       }else {
         console.log("Es un decimal");
         if(denominador2<0){
-          denominador2=(-1)*denominador1;
-          var x2="-"+numerador+"/"+denominador1;
+          denominador2=(-1)*denominador1; 
+          numerador=(-1)*numerador;         
+          //var x2="-"+numerador+"<br>___<br>"+denominador1;
+          var x1 = '<div style="width:8%;margin:0px;display:inline-block;font-size:10px;">'+
+                    '<div>'+
+                      numerador+
+                    '</div>'+
+                    '<div style="border-top:solid 1px black;">'+
+                      denominador1+
+                    '</div>'+
+                    '</div>';
         }
         else {
-          var x2=numerador+"/"+denominador1;
+          //var x2=numerador+"<br>___<br>"+denominador1;
+          var x1 = '<div style="width:8%;margin:0px;display:inline-block;font-size:10px;">'+
+                    '<div>'+
+                      numerador+
+                    '</div>'+
+                    '<div style="border-top:solid 1px black;">'+
+                      denominador1+
+                    '</div>'+
+                    '</div>';
         }
       }
 
@@ -41,10 +60,27 @@ function formula(){
         console.log("Es un numero decimal");
         if(denominador2<0){
           denominador2=(-1)*denominador2;
-          var x2="-"+numerador+"/"+denominador2;
+          numerador=(-1)*numerador;
+          //var x2="-"+numerador+"<br>___"+denominador2;
+          var x2 = '<div style="width:8%;margin:0px;display:inline-block;font-size:10px;">'+
+                    '<div style="float:left;width:100%;">'+
+                      numerador+
+                    '</div>'+
+                    '<div style="border-top:solid 1px black;float:left;width:100%;">'+
+                      denominador2+
+                    '</div>'+
+                    '</div>';
         }
         else {
-          var x2=numerador+"/"+denominador2;
+          //var x2=numerador+"/"+denominador2;//sustituir variable
+          var x2 = '<div style="width:8%;margin:0px;display:inline-block;font-size:10px;">'+
+                    '<div>'+
+                      numerador+
+                    '</div>'+
+                    '<div style="border-top:solid 1px black;">'+
+                      denominador2+
+                    '</div>'+
+                    '</div>';
         }
 
       }
@@ -52,13 +88,27 @@ function formula(){
       console.log(x1+" "+x2);
       console.log("Discriminant "+desc);
       console.log("Raiz "+raizdesc);
-      alert("Existen dos raices X1= "+x1+" y X2= "+x2);
+      //alert("Existen dos raices X1= "+x1+" y X2= "+x2);
+      
+      document.getElementById("texto").innerHTML="Existen dos raices"+"<br> X1= "+x1+" y X2= "+x2;
+      
     }
     else if(desc==0){
-      alert("Existe al menos una raiz ");
+      //alert("Existe al menos una raiz ");
+      var resultado = ((-2)*C)/B;
+      if(resultado>0){
+        resultado=(-1)*resultado;
+        document.getElementById("texto").innerHTML="Existe al menos una raiz (X"+resultado+")<sup>2</sup>=0";
+      }
+      else{
+        resultado=(-1)*resultado;
+        document.getElementById("texto").innerHTML="Existe al menos una raiz (X+"+resultado+")<sup>2</sup>=0";
+      }
+      
     }
     else if (desc<0) {
-      alert("Raices imaginarias ");
+      //alert("Raices imaginarias ");
+      document.getElementById("texto").innerHTML="Raices imaginarias";
     }
   }
 }

@@ -6,13 +6,14 @@
   background: rgba(0,0,255,0.2);
   margin: auto;
   margin-top: 20px;
-  width: 20%;
-  height: 100px;
+  width: 20px auto;
+  height: auto;
   text-align: center;
 }
 input[type=number]{
   width: 25px;
   margin:0px;
+  margin-bottom: 5px;
   padding-top: 2px;
   padding-bottom: 2px;
   text-align: center;
@@ -23,4 +24,13 @@ input[type=number]{
 }
 sup{
   margin: 0px;
+}
+#texto{
+  margin: auto;
+  margin-top:5px;
+  text-align: center;
+  width:30%;
+  overflow: auto;
+  height: auto;
+  background: #275ae7;
 }
